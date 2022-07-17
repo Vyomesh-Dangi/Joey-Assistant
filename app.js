@@ -1,7 +1,6 @@
 const btn = document.querySelector('.talk');
 const content = document.querySelector('.content');
 
-navigator.getBattery().then(battery => console.log(battery.level));
 
 function speak(sentence) {
     const text_speak = new SpeechSynthesisUtterance(sentence);
@@ -58,10 +57,10 @@ btn.addEventListener('click', ()=>{
 function speakThis(message) {
     const speech = new SpeechSynthesisUtterance();
 
-    speech.text = "I did not understand what you said please try again";
+    speech.text = "I did not understand what you said, or I am not coded for that currently";
 
-    if(message.includes('hey') || messge.includes('hello') || message.includes('hi')) {
-        const finalText = "Hello Master";a
+    if(message.includes('hey') || message.includes('hello') || message.includes('hi')) {
+        const finalText = "Hello Master";
         speech.text = finalText;
     }
 
@@ -70,8 +69,15 @@ function speakThis(message) {
         speech.text = finalText;
     }
 
+    else if(message.includes('i am not feeling good') || message.includes(' i am bored ' ) || message.includes(' i want to relax ' )) {
+        const finalText = "I got a solution for it!!!!" ;
+        window.open("https://www.youtube.com/watch?v=5Eqb_-j3FDA", "_blank");
+        
+        speech.text = finalText;
+    }
+
     else if(message.includes('name')) {
-        const finalText = "My name is Joey";
+        const finalText = "My name is Joey, any doubts!";
         speech.text = finalText;
     }
 
@@ -181,7 +187,7 @@ function speakThis(message) {
     }
 
     else if(message.includes('play')) {
-        window.open(`https://www.youtube.com/results?search_query=${message.replace(" play ", "+")}`, "_blank");
+        window.open(`https://www.youtube.com/results?search_query=${message.replace("play", "+")}`, "_blank");
         const finalText = "This is what i found on youtube regarding " + message;
         speech.text = finalText;
     }
@@ -202,18 +208,6 @@ function speakThis(message) {
     else if(message.includes('calculator')) {
         window.open('Calculator:///')
         const finalText = "Opening Calculator";
-        speech.text = finalText;
-    }
-
-    else if(message.includes('notepad')) {
-        window.open('%windir%\system32\notepad.exe')
-        const finalText = "Opening Notepad !";
-        speech.text = finalText;
-    }
-
-    else if(message.includes('visual studio code')) {
-        window.open('"C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\Code.exe"')
-        const finalText = "Opening visual studio code !";
         speech.text = finalText;
     }
 
